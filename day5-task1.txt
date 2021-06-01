@@ -1,0 +1,2 @@
+sudo useradd -m task1
+sudo userdel -r task1
