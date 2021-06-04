@@ -1,7 +1,0 @@
-- How we can remove a pacakge   completely from ubuntu os 
-
-$ sudo apt-get remove package_name
-               OR
-$ sudo apt install -f
-$ sudo apt-get remove f
-$ sudo apt-get clean
