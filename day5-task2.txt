@@ -1,0 +1,12 @@
+1-  Add a user within a specific shell 
+$ sudo useradd -s (creating a user)
+
+$ sudo usermod -s /usr/bin/bash user 2 
+(adding in a specific shell) 
+
+2- Add a userand disble its login even if it has password 
+$ sudo passwd -l user2 
+         or 
+$ sudo usermod -L user2
+
+3 - Add a user that can only run date commnad and nothing else 
