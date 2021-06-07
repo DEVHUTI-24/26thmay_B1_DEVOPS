@@ -6,4 +6,4 @@ $ sudo vim /etc/ssh/sshd_config
 
 Then ssh to that machine using new port number 
 $ systemctl restart ssh 
-$ ssh -p new_port 24 devhuti @192.168.56.1
+$ ssh -p new_port 24 devhuti@192.168.56.1
