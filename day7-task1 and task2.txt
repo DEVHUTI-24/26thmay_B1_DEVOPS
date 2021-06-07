@@ -1,5 +1,5 @@
 1.To change the hostname
-$ hostnamectl set-hostname devhuti1
+$ sudo hostnamectl set-hostname devhuti1
 $ hostname 
 
 
