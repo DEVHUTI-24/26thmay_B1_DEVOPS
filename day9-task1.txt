@@ -1,0 +1,10 @@
+1.To block your machine ip to ssh server
+$ iptables -A INPUT -s 192.168.56.1 -j DROP
+
+                OR 
+To block server access from an IP address only on a specific port on the server 
+$ iptables -A INPUT -s 192.168.56.1 -p tcp --dport ssh -j REJECT
+
+Acccess from your ssh server from your mobile using juice ssh
+for mobile in termux 
+$ ssh devhuti@192.168.56.1
