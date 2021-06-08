@@ -1,0 +1,44 @@
+1.Create a directory new at location /mnt
+$ sudo -i (switches to root)
+#root - mkdir /mnt/new
+
+2.Create a volume using  AWS EBS and attach to your ubuntu instance.
+$ fdisk -l
+
+3.Create a partition and mount it on /mnt/new
+$sudo -i
+#root-fdisk /dev/xvdf
+press n         :-(for new partition)
+press enter     :-(partition type)
+press enter     :-(1-4 (no))
+press enter     :-(first sector)
+type +500M      :-(new partition of 500mb) 
+type p          :-(for printing the created) partition
+type w          :-(save)
+root:/# fdisk -l /dev/xvdf
+
+For Formating 
+#root- mkfs.xfs  /dev/xvdf1
+
+For Mounting in mnt/new
+#root- mount  /dev/xvdf1/mnt/new
+
+To check the Mounted Drive
+#root- df-hT 
+
+
+4.Install apache web server
+$ sudo apt install apache2
+$ sudo systemctl status apache2
+
+5.Change apache web server root directory path  /var/www/html  to /mnt/new
+root#- cd /var/www
+root#-ls
+root#-cd html/
+root#-ls
+root#-cd /etc/apache2/sites-available
+root#-ls
+root#-vim 000-defualt.conf
+// change the document root  to /mnt/new
+wq!    -:(to save)
+root#-systemctl restart apache2
