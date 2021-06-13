@@ -1,0 +1,31 @@
+1. Create a  ALB that redirects 70% traffic to taregt 1 and 30% traffic to target 2.
+ALB -> Listeners -> view/edit rules -> target 1- 70
+target 2-30
+                                       
+
+2. In target 1 and 2 install apache2 web server
+$ sudo -i
+$ apt install apache2
+$ systemctl status apache2 // in target 1
+
+$ sudo -i
+$ apt install apache2
+$ systemctl status apache2 // in target 2
+
+
+3. Target 1 web server should display "Hi I am target1" in its output.
+$ cd/var/www/html
+$ echo  " " >index.html  :- redirect the content of this file 
+$ sudo -i
+$ vim index.html
+// Hi I am target 1
+//:wq -save 
+
+
+4. Target 2 web server should display "Hi I am target2" in its output.
+$ cd/var/www/html
+$ echo  " " >index.html
+$ sudo -i
+$ vim index.html>
+// Hi I am target 2
+//:wq -save 
