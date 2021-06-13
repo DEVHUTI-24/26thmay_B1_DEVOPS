@@ -1,0 +1,51 @@
+1.Create a volume using  AWS EBS and attach to your ubuntu instance and mount it to /root/welcome
+
+$sudo -i
+#root-fdisk /dev/xvdf
+press n         :-(for new partition)
+press enter     :-(partition type)
+press enter     :-(1-4 (no))
+press enter     :-(first sector)
+type +500M      :-(new partition of 500mb) 
+type p          :-(for printing the created) partition
+type w          :-(save)
+root:/# fdisk -l /dev/xvdf
+
+For Formating 
+#root- mkfs.xfs  /dev/xvdf
+
+$ mkdir /mnt/welcome
+
+For Mounting in root/welcome
+$ mount /dev/xvdf1 /mnt/welcome
+
+To check the Mounted Drive
+#root- df-hT 
+
+
+2. Create a index.html in that having "HII LNB" written in that in mounted location
+
+root#- echo  " " >index.html
+
+root#- vim index.html  :- create index.html in mounted loaction /root/welcome
+
+// HII LNB
+//:wq      :-save 
+
+
+
+3. Volume detach and attach to new machine in which apache is installed and apache root directory should be /root/new
+$ sudo -i
+$ apt install apache2        :- for installing apache2
+$ systemctl status apache2   :- check the apache2 status 
+$ mkdir /root/new
+$ cd /var/www
+$ ls
+$ cd html/
+$ ls
+$ cd /etc/apache2/sites-available
+$ ls
+$ vim 000-defualt.conf
+// change the document root  to /root/new
+//wq! - to save
+$ systemctl restart apache2
